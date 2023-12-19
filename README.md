@@ -34,9 +34,6 @@ This project demonstrates a microservices architecture leveraging the Eureka Ser
 - **Inter-service Communication**: Microservices communicate with each other using RESTful APIs. They may also use the Eureka Service Registry to discover and communicate with other microservices.
 - **Response Aggregation**: The Gateway may also aggregate responses from various microservices and return a consolidated response to the client.
 
-## Setup and Running
-
-(Include instructions on how to set up and run the applications, including starting the Eureka server, running the Spring Boot Gateway, and starting each Django microservice.)
 
 ## Conclusion
 
