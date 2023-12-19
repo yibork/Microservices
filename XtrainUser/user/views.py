@@ -15,8 +15,9 @@ from .models import User, DayMacro, DayWeight
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
-
+from .models import User
 from .serializers import DayMacroSerializer
+from django.forms.models import model_to_dict
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -96,3 +97,12 @@ class DayWeightListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         # Sets the user to the current user when creating a new record.
         serializer.save(user=self.request.user)
+
+
+class TokenView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        user_data = model_to_dict(user, fields=['username', 'first_name', 'last_name', 'email'])
+        return Response({"allowed": user_data}, status=status.HTTP_200_OK)

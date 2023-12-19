@@ -7,7 +7,7 @@ class MyAppConfig(AppConfig):
     def ready(self):
         # Eureka server URL and Django application details
         eureka_server_url = "http://localhost:8761/eureka/"
-        app_name = "DJANGO-app"
+        app_name = "User-SERVICE"
         instance_port = 8000  # The port your Django app is running on
         instance_host = "10.126.113.181"  # Replace with the non-loopback IP address of your machine
 

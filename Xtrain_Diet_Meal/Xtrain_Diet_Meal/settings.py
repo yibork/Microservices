@@ -30,14 +30,32 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+Django_APPs = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    ]
+
+System_APPs = [
+    'Diet',
+    'Workout',
+    'microservice',
+
 ]
+ThirdParty_APPs = [
+    'rest_framework',
+    'pictures',
+    'rest_auth',
+    'rest_auth.registration',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'allauth',
+]
+# settings.py
+INSTALLED_APPS = Django_APPs + System_APPs + ThirdParty_APPs
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -48,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'Xtrain_Diet_Meal.urls'
 

@@ -1,5 +1,6 @@
 from django.db import models
 from pictures.models import PictureField
+
 # Create your models here.
 class Discipline(models.Model):
     name = models.CharField(max_length=100)
@@ -24,7 +25,7 @@ class Workout(models.Model):
         return self.name
 
 class UserWorkout(models.Model):
-    user = models.ForeignKey('user.User', on_delete=models.CASCADE)
+    user = models.ForeignKey('Workout.UserProxy', on_delete=models.CASCADE)
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
     date = models.DateTimeField()
 
@@ -55,6 +56,7 @@ class WorkoutExerciseSet(models.Model):
     weight = models.IntegerField()
     def __str__(self):
         return self.workout_exercise.workout.name + ' - ' + self.workout_exercise.exercise.name + ' - ' + str(self.set_number)
+
 
 
 

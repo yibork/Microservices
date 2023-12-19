@@ -39,8 +39,8 @@ class DietPlan(models.Model):
     name = models.CharField(max_length=100)
     duration = models.IntegerField()
     diet = models.ForeignKey('Diet', on_delete=models.CASCADE)
-    trainee = models.ForeignKey('user.User', on_delete=models.CASCADE)
-    coach = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='coach')
+    trainee = models.ForeignKey('Workout.UserProxy', on_delete=models.CASCADE)
+    coach = models.ForeignKey('Workout.UserProxy', on_delete=models.CASCADE, related_name='coach')
     def __str__(self):
         return self.name
 class Meal(models.Model):
@@ -71,7 +71,7 @@ class Meal(models.Model):
 
 class DailyMeal(models.Model):
     meal = models.ForeignKey('Meal', on_delete=models.CASCADE)
-    trainee = models.ForeignKey('user.User', on_delete=models.CASCADE)
+    trainee = models.ForeignKey('Workout.UserProxy', on_delete=models.CASCADE)
     date = models.DateField()
     def __str__(self):
         return self.meal.name

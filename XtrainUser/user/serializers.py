@@ -1,10 +1,7 @@
 from .models import User
 from .models import DayMacro
 from rest_framework import serializers
-from django.utils import timezone
-from django.db import models
-
-from django.conf import settings
+from .models import  DayWeight
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,8 +33,6 @@ class CoachListSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
 
-from rest_framework import serializers
-from .models import  DayWeight
 
 class DayMacroSerializer(serializers.ModelSerializer):
     class Meta:
